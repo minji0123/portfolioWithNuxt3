@@ -1,0 +1,312 @@
+/* Preset */
+
+//--- Setting - Fonts
+
+@import url('https://webfontworld.github.io/pretendard/Pretendard.css')
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap')
+
+html
+  font-size: 12px
+
+//--- Setting - Additional media query for font size
+// Resolution list > 480, 768, 1024, 1280, 1440, 1600, 1920, 2560 (px)
+
+// @media screen and (min-width:[Custom Width])
+//   html
+//     font-size: [Custom Value]
+
+//--- Setting - Color & Size
+
+$point1: #c20f2d // Default point color
+$point2: #5272c3
+$point3: #344a84
+$point4: #85ff33
+$point5: #2bd10f
+$point6: #ff3636
+
+$bk: #000
+$bk-opa-1: rgba(0,0,0,0.1)
+$bk-opa-2: rgba(0,0,0,0.2)
+$bk-opa-3: rgba(0,0,0,0.3)
+$bk-opa-4: rgba(0,0,0,0.4)
+$bk-opa-5: rgba(0,0,0,0.5)
+$bk-opa-6: rgba(0,0,0,0.6)
+$bk-opa-7: rgba(0,0,0,0.7)
+$bk-opa-8: rgba(0,0,0,0.8)
+$bk-opa-9: rgba(0,0,0,0.9)
+
+$wh: #fff
+$wh-opa-1: rgba(255,255,255,0.1)
+$wh-opa-2: rgba(255,255,255,0.2)
+$wh-opa-3: rgba(255,255,255,0.3)
+$wh-opa-4: rgba(255,255,255,0.4)
+$wh-opa-5: rgba(255,255,255,0.5)
+$wh-opa-6: rgba(255,255,255,0.6)
+$wh-opa-7: rgba(255,255,255,0.7)
+$wh-opa-8: rgba(255,255,255,0.8)
+$wh-opa-9: rgba(255,255,255,0.9)
+
+$gray1: #1d1d1d //--- Default text color
+$gray2: #272727
+$gray3: #3f3f3f
+$gray4: #515151
+$gray5: #a1a1a1
+$gray6: #c2c2c2
+$gray7: #d4d4d4
+$gray8: #e6e6e6
+$gray9: #fafafa
+
+$size0: 1.0rem //--- Default font-size
+$size1: 1.1rem
+$size2: 1.2rem
+$size3: 1.3rem
+$size4: 1.4rem
+$size5: 1.6rem
+$size6: 1.8rem
+$size7: 2.0rem
+$size8: 2.4rem
+$size9: 2.8rem
+
+$header-height: 80px
+$header-height-m: 60px
+
+$wrap-size: 80vw
+$wrap-size-m: 94vw
+
+//--- Setting - Common & Reset
+
+*
+  margin: 0
+  padding: 0
+  box-sizing: border-box
+  font-family: 'Pretendard', 'Noto Sans KR', sans-serif
+
+body
+  font-size: $size0
+  color: $gray1
+  max-width: 100vw
+
+ol, ul
+  list-style: none
+
+a, a:hover
+  color: $gray1
+  text-decoration: none
+
+img
+  max-width: 100%
+  width: 100%
+  height: auto
+  vertical-align: middle
+
+span, strong, b
+  font-size: inherit
+  line-height: inherit
+  letter-spacing: inherit
+
+table
+  width: 100%
+  border-collapse: collapse
+  border-spacing: 0
+
+header
+  z-index: 50
+  height: $header-height-m
+
+//--- for Vuetify
+.v-application
+  *
+    line-height: 1.6em
+
+//--- Setting - Mixins & Classes
+
+@mixin circle($size, $color, $display: flex)
+  display: $display
+  justify-content: center
+  align-items: center
+  width: $size
+  height: $size
+  background: $color
+  -webkit-border-radius: $size/2
+  -moz-border-radius: $size/2
+  border-radius: $size/2
+
+@mixin square($size, $color: transparent, $display: flex)
+  display: $display
+  justify-content: center
+  align-items: center
+  width: $size
+  height: $size
+  background: $color
+
+@mixin alignc
+  display: flex
+  align-items: center
+@mixin justic
+  display: flex
+  justify-content: center
+
+@mixin bgimg($src)
+  background-image: url($src)
+  background-repeat: no-repeat
+  background-position: center
+  background-size: 100% auto
+
+@mixin posabc
+  position: absolute
+  top: 50%
+  left: 50%
+  transform: translate(-50%, -50%)
+
+@for $fw from 1 through 9
+  .fw-#{$fw}
+    font-weight: 100 * $fw
+
+@for $fs from 0 through 9
+  .fs-#{$fs}
+    font-size: (3.2 + $fs * 0.4) + rem
+
+@for $lh from 0 through 9
+  .lh-#{$lh}
+    line-height: (1.1 + $lh * 0.2) + em
+
+@for $animDelay from 1 through 9
+  .from-delay-#{$animDelay}, .from_delay_#{$animDelay}
+    animation-delay: ($animDelay * 300) + ms
+
+.sub-page-layout
+  padding-top: $header-height-m
+  padding-bottom: $header-height-m * 2
+
+.safe-size
+  max-width: 1280px
+  margin-inline: auto
+
+.blind
+  position: absolute
+  left: -9999px
+  top: -9999px
+  width: 0
+  height: 0
+  overflow: hidden
+
+.txt-blind
+  text-indent: -9999px
+  overflow: hidden
+
+.txt-ellip
+  overflow: hidden
+  text-overflow: ellipsis
+  white-space: nowrap
+
+.on-mo
+  display: block !important
+.on-tb
+  display: none !important
+.on-pc
+  display: none !important
+.on-motb
+  display: block !important
+.on-tbpc
+  display: none !important
+
+//--- Setting - Animations
+
+.air-float, .air_float
+  animation: airFloat 1.6s ease-in-out alternate infinite
+@keyframes airFloat
+  from
+    -webkit-transform: translate3d(0, 0, 0)
+    transform: translate3d(0, 0, 0)    
+  to
+    visibility: hidden
+    -webkit-transform: translate3d(0, 15%, 0)
+    transform: translate3d(0, 15%, 0)    
+
+.from-before, .from_before
+  opacity: 0
+
+.from-top, .from_top
+  transform: translateY(-30px)
+  opacity: 0
+  animation: fromTop 0.8s ease-in-out forwards
+@keyframes fromTop
+  0%
+    transform: translateY(-30px)
+    opacity: 0
+  100%
+    transform: translateY(0)
+    opacity: 1
+
+.from-right, .from_right
+  transform: translateX(120%)
+  opacity: 0
+  animation: fromRight 1s ease-in-out forwards
+@keyframes fromRight
+  0%
+    transform: translateX(120%)
+    opacity: 0
+  100%
+    transform: translateX(0)
+    opacity: 1
+
+.from-bottom, .from_bottom
+  transform: translateY(50px)
+  opacity: 0
+  animation: fromBottom 1s ease-in-out forwards
+@keyframes fromBottom
+  0%
+    transform: translateY(50px)
+    opacity: 0
+  100%
+    transform: translateY(0)
+    opacity: 1
+
+.from-left, .from_left
+  transform: translateX(-50px)
+  opacity: 0
+  animation: fromLeft 0.8s ease-in-out forwards
+@keyframes fromLeft
+  0%
+    transform: translateX(-50px)
+    opacity: 0
+  100%
+    transform: translateX(0)
+    opacity: 1
+
+//--- Setting - Responsive
+
+// for Tablet
+@media screen and (min-width:768px)
+  html
+    font-size: 14px
+  .sub-page-layout
+    padding-top: $header-height
+    padding-bottom: $header-height * 2
+  .on-mo
+    display: none !important
+  .on-tb
+    display: block !important
+  .on-pc
+    display: none !important
+  .on-motb
+    display: block !important
+  .on-tbpc
+    display: block !important
+  header
+    height: $header-height
+
+// for PC
+@media screen and (min-width:1280px)
+  html
+    font-size: 14px
+  .on-mo
+    display: none !important
+  .on-tb
+    display: none !important
+  .on-pc
+    display: block !important
+  .on-motb
+    display: none !important
+  .on-tbpc
+    display: block !important

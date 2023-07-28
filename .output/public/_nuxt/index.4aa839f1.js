@@ -1,0 +1,1 @@
+import{J as e}from"./entry.3c059f94.js";const a=e("defaultState",{state:()=>({companyName:"상호명",companyNum:"12-234-45678",ceo:"대표자명",phone:"대표번호",fax:"팩스번호",mail:"메일주소",address:"상세주소",website:"웹사이트주소",copyright1:"COPYRIGHT© *COMPANY All rights reserved.",copyright2:"Designed by TOOBPLUS."})});e("handleScroll",()=>{});e("handleScroll",()=>{});export{a as d};
